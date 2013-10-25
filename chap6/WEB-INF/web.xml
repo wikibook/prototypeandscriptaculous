@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+  <display-name>Prototype and Scriptaculous in Action - Chapter 6 Examples</display-name>
+
+  <servlet>
+    <servlet-name>CheckEmailAddressServlet</servlet-name>
+    <servlet-class>org.bibeault.sq.chap6.CheckEmailAddressServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CheckEmailAddressServlet</servlet-name>
+    <url-pattern>/checkEmailAddress</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CheckPhoneNumberServlet</servlet-name>
+    <servlet-class>org.bibeault.sq.chap6.CheckPhoneNumberServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CheckPhoneNumberServlet</servlet-name>
+    <url-pattern>/checkPhoneNumber</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AjaxAutocompleterChoicesServlet</servlet-name>
+    <servlet-class>org.bibeault.sq.chap6.MoviesAutocompleterServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AjaxAutocompleterChoicesServlet</servlet-name>
+    <url-pattern>/getAutocompleterChoices</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MoviesListServlet</servlet-name>
+    <servlet-class>org.bibeault.sq.chap6.MoviesListServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MoviesListServlet</servlet-name>
+    <url-pattern>/getMoviesList</url-pattern>
+  </servlet-mapping>
+
+</web-app>

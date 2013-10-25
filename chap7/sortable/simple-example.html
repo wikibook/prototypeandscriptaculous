@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Sortable Simple Example</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        Sortable.create('sortableList',{});
+        Sortable.create('sortableDiv',{tag:'div'});
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <div>
+      <h1>Sortable &lt;ul&gt; list</h1>
+      <ul id="sortableList">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+      </ul>
+    </div>
+
+    <div>
+      <h1>Sortable &lt;div&gt; list</h1>
+      <div id="sortableDiv">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

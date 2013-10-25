@@ -1,0 +1,23 @@
+<html>
+<head>
+<link rel='stylesheet' type="text/css" href="images.css"/>
+<script type='text/javascript' src='lib/prototype/prototype.js'></script>
+<script type='text/javascript' src='lib/images.js'></script>
+</head>
+<body>
+
+<div id='title' class='box'>
+</div>
+
+<div class='box' id='closeup'>
+<img id='closeup_img'></img>
+</div>
+
+<div id='folders' class='box'>
+</div>
+
+<div id='images' class='box'>
+</div>
+
+</body>
+</html>

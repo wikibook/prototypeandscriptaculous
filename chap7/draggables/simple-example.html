@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Draggables Simple Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      var elements = [
+        'normalDiv',
+        'relativeDiv',
+        'absoluteDiv',
+        'anImage',
+        'aSpan'
+      ];
+
+      window.onload = function() {
+        elements.each(
+          function(item) {
+            new Draggable(item, {});
+          }
+        );
+      }
+    </script>
+    <style type="text/css">
+      #relativeDiv {
+        position: relative;
+      }
+      #absoluteDiv {
+        position: absolute;
+        left: 240px;
+        top: 100px;
+      }
+      #aSpan {
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="normalDiv">
+      This is a normal div.
+    </div>
+
+    <div id="relativeDiv">
+      This is a relative div.
+    </div>
+
+    <div id="absoluteDiv">
+      This is an absolute div.
+    </div>
+
+    <img id="anImage" src="../images/bear.gif"/>
+
+    <p>
+      What about <span id="aSpan">a span in the middle</span> of
+      a sentence?
+    </p>
+
+  </body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Simple Slider Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+          new Control.Slider(
+            'sliderHandle',
+            'sliderTrack',
+            {}
+          );
+      }
+    </script>
+    <style type="text/css">
+      #sliderTrack {
+        width: 175px;
+        height: 12px;
+        background-color: white;
+        border: 1px blue solid;
+        cursor: pointer;
+      }
+      #sliderHandle {
+        width: 4px;
+        height: 12px;
+        background-color: green;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="sliderTrack">
+      <div id="sliderHandle"></div>
+    </div>
+  </body>
+
+</html>

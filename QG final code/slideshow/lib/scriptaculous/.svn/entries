@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/slideshow/lib/scriptaculous"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="builder.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="6b737ecca99b73e70149195653627e4a"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="effects.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="7110874df2b54fc6e64f38f34116fdb2"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="unittest.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="e92e0664cad260d461de39a3558f0dec"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="scriptaculous.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="981fd7220a1e3a59f7b72182bcd9abba"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="dragdrop.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="7698a8ccf7ab6f7a3bfaad7f9e10614e"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="slider.js"
+   text-time="2006-08-15T15:05:30.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="2b94a771321e4b68ea2a9337d5481b98"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="controls.js"
+   text-time="2006-09-08T13:12:06.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="c8492b5edb83bfaa911aa4a93e4bab1d"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>

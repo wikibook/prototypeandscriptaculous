@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/slideshow"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="thumbnail.inc.php"
+   text-time="2006-08-28T22:00:06.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="45aa42b1b28856f772e65f6aaafc6415"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="slideshows.inc.php"
+   text-time="2006-09-08T13:28:12.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="d50c35ac2a6f15338a7e86de251385bf"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="images.inc.php"
+   text-time="2006-09-15T14:22:27.703125Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="966afe8844cacd0dee77d4df8843353c"
+   last-author="dave"
+   kind="file"/>
+<entry
+   name="lib"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="saveSlides.php"
+   text-time="2006-09-15T14:22:42.250000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="355c789deb1916d793501e6d839383f8"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="loadSlides.php"
+   text-time="2006-09-15T14:22:36.218750Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="d347b1a2d573539f3fe557e25cbd1916"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="thumbnail.php"
+   text-time="2006-09-15T14:22:49.203125Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="84b743916a65000abbc264db9158bd4c"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="index.html"
+   text-time="2006-09-15T14:39:50.625000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="f57e695f49b3649f547b4f8dab5a001b"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="images.php"
+   text-time="2006-09-08T13:29:50.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="1a4965fc2d6b0d19b8b1a0a5d52add5f"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="images.css"
+   text-time="2006-09-13T14:53:04.829786Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="4e6e3d289d69f542a4deb8930c312e42"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>

@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Extended Slider Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        createSlider(1,100);                                           //#1
+      }
+
+      function createSlider(minValue,maxValue) {
+        var values = [];                                               //#2
+        for (var n = minValue; n <= maxValue; n++) values.push(n);
+        new Control.Slider(                                            //#3
+          'sliderHandle',
+          'sliderTrack',
+          {
+            range: $R(minValue,maxValue),
+            values: values,
+            sliderValue: minValue,
+            onChange: function(value) {                                //#4
+              $('sliderValue').innerHTML = value;
+            },
+            onSlide: function(value) {
+              $('sliderValue').innerHTML = value;
+            }
+          }
+        );
+        $('sliderValue').innerHTML = minValue;                         //#5
+      }
+    </script>
+    <style type="text/css">
+      body {
+        margin: 16px;
+      }
+      #sliderTrack {
+        background-image: url(track.gif);
+        background-repeat: no-repeat;
+        background-position: 0px 4px;
+        width: 175px;
+        height: 10px;
+        cursor: pointer;
+      }
+      #sliderHandle {
+        cursor: pointer;
+      }
+      #controlContainer label,
+      #controlContainer #sliderTrack,
+      #controlContainer #sliderValue {
+        float: left;
+        margin-left: 18px;
+      }
+      #sliderValue {
+        border: 1px solid maroon;
+        width: 26px;
+        font-size: 88%;
+        padding: 3px 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="controlContainer">                                        <!--#9-->
+      <label>Whatever:</label>
+      <span id="sliderElements">
+        <div id="sliderTrack">
+          <img id="sliderHandle" src="handle-red.gif"/>
+        </div>
+      </span>
+      <span id="sliderValue"></span>
+    </div>
+  </body>
+
+</html>

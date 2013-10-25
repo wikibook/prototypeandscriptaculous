@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/contentUpdate/lib"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="images.js"
+   text-time="2006-06-30T15:42:12.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="bc74610da89a0a11ce9d5ddc8d027670"
+   last-author="dave"
+   kind="file"/>
+<entry
+   name="scriptaculous"
+   kind="dir"/>
+<entry
+   name="prototype"
+   kind="dir"/>
+</wc-entries>

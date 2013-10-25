@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>Scriptaculous Draggables Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      var draggables = [];
+
+      function onApply() {
+        draggables.each(
+         function(draggable) { draggable.destroy(); }
+        );
+        var form = document.optionsForm;
+        var options = LabSupport.collectOptions(form);
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.change = function(draggable) { showInfo(draggable.element); }
+        document.getElementsByClassName('makeDraggable','draggablesContainer').each(
+          function(item) {
+            draggables.push( new Draggable( item, options ) );
+          }
+        );
+        return false;
+      }
+
+      function showInfo(element) {
+        $('messagesDisplay').innerHTML =
+          'element position: (' + element.offsetLeft + ',' + element.offsetTop + ')';
+      }
+    </script>
+    <style type="text/css">
+      .boxy {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        border: 3px ridge navy;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .makeDraggable {
+        cursor: move;
+      }
+    </style>
+  </head>
+
+  <body class="labPage">
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Messages</legend>
+          <div id="messagesDisplay"></div>
+        </fieldset>
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>Draggable Options</legend>
+
+          <div>
+            <label>revert:</label>
+            <input type="radio" name="revert" value="true" class="boolean"/>true
+            <input type="radio" name="revert" value="false" class="boolean"/>false
+          </div>
+
+          <div>
+            <label>snap:</label>
+            <input type="text" name="snap" class="numeric" style="width:48px"/>
+            (single-value, square grid only)
+          </div>
+
+          <div>
+            <label>constraint:</label>
+            <input type="radio" name="constraint" value="horizontal" class="booleanValue"/>horizontal
+            <input type="radio" name="constraint" value="vertical" class="booleanValue"/>vertical
+            <input type="radio" name="constraint" value="" class="booleanValue"/>none
+          </div>
+
+          <div>
+            <label>ghosting:</label>
+            <input type="radio" name="ghosting" value="true" class="boolean"/>true
+            <input type="radio" name="ghosting" value="false" class="boolean"/>false
+          </div>
+
+          <div style="margin-top:12px">
+            <button type="submit">Apply to Items</button>
+            <input type="reset"/>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+    </form>
+
+    <div id="draggablesContainer" style="clear:both;padding-top:18px">
+      <img src="../images/bear.gif" class="makeDraggable"/>
+      <div class="boxy makeDraggable">This is a &lt;div&gt;</div>
+      <div>This is <span class="makeDraggable" style="color:blue">a &lt;span&gt;</span> embedded in text.</div>
+      <ul class="makeDraggable">
+        <li>This is a short list</li>
+        <li>with 2 items</li>
+      </ul>
+    </div>
+
+  </body>
+
+</html>

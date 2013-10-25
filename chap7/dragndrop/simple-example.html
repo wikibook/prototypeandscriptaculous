@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Drag-n-Drop Simple Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        $A($('draggables').getElementsByTagName('img')).each(
+          function(item) {
+            new Draggable(
+              item,
+              {
+                revert: true,
+                ghosting: true
+              }
+            );
+          }
+        );
+        Droppables.add(
+          'dropZone',
+          {
+            hoverclass: 'hoverActive',
+            onDrop: movePhoto
+          }
+        );
+        $('dropZone').cleared = false;
+      }
+
+      function movePhoto(draggable,dropZone) {
+        if (!dropZone.cleared) {
+          dropZone.innerHTML = '';
+          dropZone.cleared = true;
+        }
+        draggable.parentNode.removeChild(draggable);
+        dropZone.appendChild(draggable);
+      }
+    </script>
+    <style type="text/css">
+      #draggables {
+        width: 172px;
+        border: 3px ridge blue;
+        float: left;
+        padding: 9px;
+      }
+      #dropZone {
+        float: left;
+        margin-left: 16px;
+        width: 172px;
+        border: 3px ridge maroon;
+        text-align: center;
+        font-size: 24px;
+        padding: 9px;
+        float: left;
+      }
+      .hoverActive {
+        background-color: #ffffcc;
+      }
+      #draggables img, #dropZone img {
+        margin: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="draggables">
+      <img src="../images/photo-1.jpg"/>
+      <img src="../images/photo-2.jpg"/>
+      <img src="../images/photo-3.jpg"/>
+      <img src="../images/photo-4.jpg"/>
+      <img src="../images/photo-5.jpg"/>
+    </div>
+
+    <div id="dropZone">Drag and Drop photos here</div>
+
+  </body>
+
+</html>

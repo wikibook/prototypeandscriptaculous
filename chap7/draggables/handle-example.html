@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Draggables Custom Movement Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Draggable(
+          'targetElement',
+          {
+            handle: 'dragHandle'
+          }
+        );
+      }
+    </script>
+    <style type="text/css">
+      #dragHandle {
+        position: relative;
+        width: 8px;
+        height: 8px;
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <img id="targetElement" src="../images/bear.gif"/>
+    <div id="dragHandle"></div>
+
+  </body>
+
+</html>

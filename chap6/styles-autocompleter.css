@@ -1,0 +1,27 @@
+#autocompleteMenu ul {
+  border: 2px outset #cc9933;
+  background-color: #cc9933;
+  margin-left: 12px;
+  padding: 4px 6px;
+  width: 288px;
+  height: 360px;
+  overflow: auto;
+}
+
+#autocompleteMenu li {
+  color: white;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+#autocompleteMenu li.selected {
+  color: #ffcc66;
+  font-weight: bold;
+}
+
+#animatedIndicator {
+  margin-left: 88px;
+}

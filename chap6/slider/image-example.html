@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Image Slider Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+          new Control.Slider(
+            'sliderHandle',
+            'sliderTrack',
+            {
+              alignX: 0
+            }
+          );
+      }
+    </script>
+    <style type="text/css">
+      #sliderTrack {
+        width: 175px;
+        height: 10px;
+        background-image: url(track.gif);
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      #sliderHandle {
+        margin-top: -4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="sliderTrack">
+        <img id="sliderHandle" src="handle-green.gif"/>
+    </div>
+  </body>
+
+</html>

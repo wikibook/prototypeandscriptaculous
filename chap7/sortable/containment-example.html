@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <title>Sortables Containment Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        Sortable.create(
+          'sortableList1',
+          {
+            containment: ['sortableList1','sortableList2'],
+            dropOnEmpty: true
+          }
+        );
+        Sortable.create(
+          'sortableList2',
+          {
+            containment: ['sortableList1','sortableList2']
+          }
+        );
+      }
+    </script>
+    <style type="text/css">
+      ul {
+        width: 88px;
+        border: 1px solid blue;
+        padding: 3px 3px 3px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div style="float:left">
+      <h1>List 1</h1>
+      <ul id="sortableList1">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+      </ul>
+    </div>
+
+    <div style="float:left;margin-left:16px">
+      <h1>List 2</h1>
+      <ul id="sortableList2">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+      </ul>
+    </div>
+
+  </body>
+
+</html>

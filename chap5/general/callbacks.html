@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Callbacks Test</title>
+    <style type="text/css">
+      #testSubject {
+        position: relative;
+        width: 300px;
+        padding: 16px;
+        background-color: #ffc082;
+        border: 1px maroon ridge;
+      }
+    </style>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript">
+      function onApply() {
+        $('display').innerHTML = '';
+        new Effect.Opacity( 'testSubject', {
+          duration: 5,
+          from: 0,
+          to: 1,
+          beforeStart: function(o) { report('beforeStart',o); },
+          beforeUpdate: function(o) { report('beforeUpdate',o); },
+          afterUpdate: function(o) { report('afterUpdate',o); },
+          afterFinish: function(o) { report('afterFinish',o); }
+        });
+      }
+
+      function report(what,o) {
+        $('display').innerHTML = '<b>' + what + '</b>: ' + o.currentFrame;
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <div id="testSubject">
+      <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis sodales tellus. Maecenas consectetuer, nunc nec laoreet venenatis, tellus mauris varius tortor, eu malesuada eros eros eu mi. Curabitur sem. Donec dui elit, vehicula nec, ultricies condimentum, fringilla sed, arcu. Nunc commodo. Sed nec massa. Nullam sit amet tortor sed arcu pretium viverra. Vivamus facilisis, velit dapibus sodales vestibulum, mi sem posuere risus, sed aliquam mauris quam eu dui. Aliquam pede lacus, elementum nec, aliquet vel, viverra non, velit. Phasellus commodo metus non urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
+    </div>
+
+    <div>
+      <button type="button" onclick="onApply()">Apply</button>
+    </div>
+
+    <div id="display" style="padding-top:1em"></div>
+
+  </body>
+
+</html>

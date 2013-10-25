@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>QuickGallery 2.0beta</title>
+<link rel='stylesheet' type="text/css" href="images.css"/>
+<script type='text/javascript' src='lib/prototype/prototype.js'></script>
+<script type='text/javascript' src='lib/scriptaculous/scriptaculous.js'></script>
+<script type='text/javascript' src='../config_js.php'></script>
+<script type='text/javascript' src='lib/images.js'></script>
+<script type='text/javascript' src='lib/slideshow.js'></script>
+</head>
+<body>
+
+<div id='title' class='box'>
+</div>
+
+<div class='box' id='closeup'>
+<img id='closeup_img'></img>
+</div>
+
+<div id='sidebar' class='box'>
+  <div class='sidebartitle'>folders</div>
+  <div id='folders' class='sidebarcontent'>&nbsp;</div>
+  <div class='sidebartitle'>slideshows</div>
+  <div id='slideshows' class='sidebarcontent'>&nbsp;</div>
+  <div class='sidebartitle'>tools</div>
+  <div id='toolbar'>
+    <div style='float:left;padding-right:4px'>
+      <img src='../icons/QuickGallery2.0BETA.png'>
+    </div>
+    <div style='float:right'>
+    <div>
+     <a class='btn' href='#' id='newSlideshow' title='make slideshow'><img src='../icons/filenew.png' border='0'/></a>
+     </div>
+     <div>
+      <a class='btn' href='#' id='saveSlideshow' title='save slideshow'>
+        <img src='../icons/filesave.png' border='0'/>
+      </a>
+     </div>
+     <div>
+      <a class='btn' href='#' id='runSlideshow' title='run slideshow'>
+        <img src='../icons/noatunplay.png' border='0'/>
+      </a>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div id='images' class='box'>
+</div>
+
+<input type='text' id='SlideshowName' class='box hidden'></input>
+
+<div id='slides' class='box hidden'>
+</div>
+
+<div id='trash' class='box hidden' title='drag images here to remove from slideshow'>
+</div>
+
+<div id='backdrop' class='hidden'>
+</div>
+
+<div id='liveSlides' class='hidden'>
+  <div id='slideTools' style='float:right'>
+    <div id='stopShow'><img src='../icons/exit.png'></div>
+  </div>
+</div>
+
+<div style='position:absolute;top:5px;left:800px;display:none' id='debug'>debug</div>
+</body>
+</html>

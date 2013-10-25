@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Draggables Custom Movement Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Draggable(
+          'targetElement',
+          {
+            snap: function(x,y) {
+              return [x*2,y*2];
+            }
+          }
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <img id="targetElement" src="../images/bear.gif"/>
+  </body>
+
+</html>

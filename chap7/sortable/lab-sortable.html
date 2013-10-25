@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <title>Scriptaculous Sortable Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      function onApply() {
+        LabSupport.say('');
+        Sortable.destroy('sortableList');
+        Sortable.destroy('sortableDivs');
+        var form = document.optionsForm;
+        var options = LabSupport.collectOptions(form);
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.onChange = function(child) {
+          LabSupport.say('<b>' + child.innerHTML + '</b> moved: (' + child.offsetLeft + ',' + child.offsetTop + ')');
+        }
+        options.onUpdate = function(sortable) {alert('!');
+          LabSupport.say(sortable.id + ' updated at ' + new Date());
+        }
+        Sortable.create('scrollableList',options);
+        options.scroll = null;
+        Sortable.create('sortableList',options);
+        Sortable.create('sortableDivs',options);
+        return false;
+      }
+    </script>
+    <style type="text/css">
+      .sortable {
+        width: 200px;
+        border: 3px inset maroon;
+        float: left;
+        margin: 0px 64px 0px 0px;
+        padding: 3px 6px;
+      }
+
+      #sortableList {
+        list-style-type: disc;
+        padding-left: 32px;
+      }
+
+      #scrollableList {
+        list-style-type: disc;
+        padding-left: 32px;
+        height: 188px;
+        overflow: auto;
+      }
+
+      .sortable li,.sortable div {
+        cursor: move;
+      }
+
+      .hoverActive {
+        background-color: #ffffcc;
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body class="labPage">
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Messages</legend>
+          <div id="messagesDisplay"></div>
+        </fieldset>
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>Droppable Options</legend>
+
+          <div>
+            <label>tag:</label>
+            <input type="radio" name="tag" value="" class="booleanValue"/>default
+            <input type="radio" name="tag" value="li" class="booleanValue"/>list items
+            <input type="radio" name="tag" value="div" class="booleanValue"/>div elements
+          </div>
+
+          <div>
+            <label>hoverclass:</label>
+            <input type="radio" name="hoverclass" value="" class="booleanValue"/>default
+            <input type="radio" name="hoverclass" value="hoverActive" class="booleanValue"/>use 'hoverActive' class
+          </div>
+
+          <div>
+            <label>ghosting:</label>
+            <input type="radio" name="ghosting" value="" class="boolean"/>default
+            <input type="radio" name="ghosting" value="true" class="boolean"/>true
+            <input type="radio" name="ghosting" value="false" class="boolean"/>false
+          </div>
+
+          <div>
+            <label>only:</label>
+            <input type="radio" name="only" value="" class="booleanValue"/>default
+            <input type="radio" name="only" value="even" class="booleanValue"/>class 'even'
+            <input type="radio" name="only" value="odd" class="booleanValue"/>class 'odd'
+          </div>
+
+          <div>
+            <label>constraint:</label>
+            <input type="radio" name="constraint" value="" class="booleanValue"/>none
+            <input type="radio" name="constraint" value="horizontal" class="booleanValue"/>horizontal
+            <input type="radio" name="constraint" value="vertical" class="booleanValue"/>vertical
+          </div>
+
+          <div>
+            <label>tree:</label>
+            <input type="radio" name="tree" value="" class="boolean"/>default
+            <input type="radio" name="tree" value="true" class="boolean"/>true
+            <input type="radio" name="tree" value="false" class="boolean"/>false
+          </div>
+
+          <div>
+            <label>treeTag:</label>
+            <input type="radio" name="treeTag" value="" class="booleanValue"/>none
+            <input type="radio" name="treeTag" value="ul" class="booleanValue"/>ul
+            <input type="radio" name="treeTag" value="divl" class="booleanValue"/>div
+          </div>
+
+          <div>
+            <label>scroll:</label>
+            <input type="radio" name="scroll" value="scrollableList" class="booleanValue"/>yes
+            <input type="radio" name="scroll" value="" class="booleanValue"/>no
+          </div>
+
+          <div>
+            <label>scrollSensitivity:</label>
+            <input type="text" name="scrollSensitivity" class="numeric" style="width:48px"/>
+          </div>
+
+          <div>
+            <label>scrollSpeed:</label>
+            <input type="text" name="scrollSpeed" class="numeric" style="width:48px"/>
+          </div>
+
+          <div style="margin-top:12px">
+            <input type="submit" value="Apply to Items"/>
+            <input type="reset"/>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+    </form>
+
+    <div style="clear:both;padding-top:18px">
+
+      <ul id="sortableList" class="sortable">
+        <li class="odd">A is for Apple</li>
+        <li class="even">B is for Borland</li>
+        <li class="odd">C is for C++</li>
+        <li class="even">D is for Delphi</li>
+        <li class="odd">E is for Enum</li>
+        <li class="even">F is for Fortran</li>
+        <li class="odd">G is for Gang of Four</li>
+        <li class="even">H is for Hollerith</li>
+        <ul style="margin-left:16px">
+          <li>H is also for HAL</li>
+          <li>H is also for Host</li>
+          <li>H is also for HTML</li>
+        </ul>
+        <li class="odd">I is for Iterator</li>
+        <li class="even">J is for Java</li>
+        <li class="odd">K is for Knuth</li>
+        <li class="even">L is for Lisp</li>
+        <li class="odd">M is for Macro</li>
+        <li class="even">N is for Network</li>
+        <li class="odd">O is for Object</li>
+        <li class="even">P is for Polynomial</li>
+        <li class="odd">Q is for Quality</li>
+        <li class="even">R is for Relational</li>
+        <li class="odd">S is for SAX</li>
+        <li class="even">T is for Thread</li>
+        <li class="odd">U is for URL</li>
+        <li class="even">V is for Vector</li>
+        <li class="odd">W is for Web</li>
+        <li class="even">X is for XML</li>
+        <li class="odd">Y is for yacc</li>
+        <li class="even">Z is for Z-index</li>
+      </ul>
+
+      <div id="sortableDivs" class="sortable">
+        <div class="odd">A is for API</div>
+        <div class="even">B is for Babbage</div>
+        <div class="odd">C is for Calendar</div>
+        <div class="even">D is for Database</div>
+        <div class="odd">E is for EULA</div>
+        <div class="even">F is for File</div>
+        <div class="odd">G is for GNU</div>
+        <div class="even">H is for HAL</div>
+        <div class="odd">I is for I18N</div>
+        <div class="even">J is for JSON</div>
+        <div class="odd">K is for Kernighan</div>
+        <div class="even">L is for Loop</div>
+        <div class="odd">M is for Macintosh</div>
+        <div style="padding-left:16px">
+          <div>M is also for Mozilla</div>
+          <div>M is also for Memory</div>
+          <div>M is also for MHz</div>
+        </div>
+        <div class="even">N is for Node</div>
+        <div class="odd">O is for Open Source</div>
+        <div class="even">P is for Polymorphism</div>
+        <div class="odd">Q is for Qualcomm</div>
+        <div class="even">R is for Resource</div>
+        <div class="odd">S is for Software</div>
+        <div class="even">T is for Teletype</div>
+        <div class="odd">U is for User</div>
+        <div class="even">V is for VAX</div>
+        <div class="odd">W is for Wireless</div>
+        <div class="even">X is for XToolkit</div>
+        <div class="odd">Y is for Y2K</div>
+        <div class="even">Z is for Zone</div>
+      </div>
+
+      <ul id="scrollableList" class="sortable">
+        <li class="odd">A is for Apple</li>
+        <li class="even">B is for Borland</li>
+        <li class="odd">C is for C++</li>
+        <li class="even">D is for Delphi</li>
+        <li class="odd">E is for Enum</li>
+        <li class="even">F is for Fortran</li>
+        <li class="odd">G is for Gang of Four</li>
+        <li class="even">H is for Hollerith</li>
+        <li class="odd">I is for Iterator</li>
+        <li class="even">J is for Java</li>
+        <li class="odd">K is for Knuth</li>
+        <li class="even">L is for Lisp</li>
+        <li class="odd">M is for Macro</li>
+        <li class="even">N is for Network</li>
+        <li class="odd">O is for Object</li>
+        <li class="even">P is for Polynomial</li>
+        <li class="odd">Q is for Quality</li>
+        <li class="even">R is for Relational</li>
+        <li class="odd">S is for SAX</li>
+        <li class="even">T is for Thread</li>
+        <li class="odd">U is for URL</li>
+        <li class="even">V is for Vector</li>
+        <li class="odd">W is for Web</li>
+        <li class="even">X is for XML</li>
+        <li class="odd">Y is for yacc</li>
+        <li class="even">Z is for Z-index</li>
+      </ul>
+
+    </div>
+
+  </body>
+
+</html>

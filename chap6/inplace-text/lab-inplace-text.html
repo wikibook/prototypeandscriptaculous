@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <title>Scriptaculous InPlaceEditor Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      function onApply() {
+        var form = document.optionsForm;
+        var options = LabSupport.collectOptions(form);
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.onComplete = function() { $('status').innerHTML = 'onComplete: ' + $('targetElement').innerHTML };
+        $('elementContainer').innerHTML = '<label>Target element:</label><span id="targetElement">Click me to edit!</span>';
+        new Ajax.InPlaceEditor('targetElement','transform.jsp',options);
+        return false;
+      }
+
+      function showOptions(options) {
+        var text = '<pre>{<br/>';
+        for (p in options) text += ('  ' + p + ': ' + options[p] + '<br/>')
+        text += '}<br/></pre>';
+        $('optionsDisplay').innerHTML = text;
+      }
+    </script>
+    <style type="text/css">
+      .inplaceeditor-form {
+        display: inline;
+      }
+      label {
+        font-weight: bold;
+        text-align: right;
+        width: 132px;
+        float: left;
+        padding-right: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Status</legend>
+          <div id="status">&nbsp;</div>
+        </fieldset>
+
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>InPlaceEditor Options</legend>
+
+          <div>
+            <label>okButton:</label>
+            <input type="radio" name="okButton" value="true" class="boolean"/>Yes
+            <input type="radio" name="okButton" value="false" class="boolean"/>No
+          </div>
+
+          <div>
+            <label>okText:</label>
+            <input type="text" name="okText"/>
+          </div>
+
+          <div>
+            <label>cancelLink:</label>
+            <input type="radio" name="cancelLink" value="true" class="boolean"/>Yes
+            <input type="radio" name="cancelLink" value="false" class="boolean"/>No
+          </div>
+
+          <div>
+            <label>cancelText:</label>
+            <input type="text" name="cancelText"/>
+          </div>
+
+          <div>
+            <label>clickToEditText:</label>
+            <input type="text" name="clickToEditText"/>
+          </div>
+
+          <div>
+            <label>rows:</label>
+            <input type="text" name="rows" class="numeric"/>
+          </div>
+
+          <div>
+            <label>cols:</label>
+            <input type="text" name="cols" class="numeric"/>
+          </div>
+
+          <div>
+            <label>highlightcolor:</label>
+            <input type="text" name="highlightcolor"/>
+          </div>
+
+          <div>
+            <label>highlightendcolor:</label>
+            <input type="text" name="highlightendcolor"/>
+          </div>
+
+          <div>
+            <label>loadTextURL:</label>
+            <input type="text" name="loadTextURL"/>
+          </div>
+
+          <div>
+            <label>loadingText:</label>
+            <input type="text" name="loadingText"/>
+          </div>
+
+          <div>
+            <label>savingText:</label>
+            <input type="text" name="savingText"/>
+          </div>
+
+          <div>
+            <label>formId:</label>
+            <input type="text" name="formId"/>
+          </div>
+
+          <div>
+            <input type="submit" value="Create Editor"/>
+            <input type="reset"/>
+          </div>
+
+        </fieldset>
+      </div>
+
+    </form>
+
+    <div id="elementContainer" style="clear:both;padding-top:32px"></div>
+
+  </body>
+
+</html>

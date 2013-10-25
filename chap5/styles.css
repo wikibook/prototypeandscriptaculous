@@ -1,0 +1,64 @@
+body {
+  font-family: Verdana,sans-serif;
+  font-size: 10pt;
+}
+
+h1 {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #339999;
+}
+
+h2 {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #339999;
+}
+
+fieldset {
+  border: 2px ridge #339999;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+legend {
+  border: 2px ridge #339999;
+  font-weight: bold;
+  padding: 2px 6px;
+  background-color: #66cccc;
+}
+
+fieldset div {
+  margin-bottom: 4px;
+}
+
+dl {
+  margin: 4px 0px 12px 0px;
+  padding: 0px;
+}
+
+dt {
+  margin: 4px 0px 0px 0px;
+  padding: 0px;
+  font-weight: bold;
+  color: #336666;
+}
+
+dd {
+  margin: 0px;
+  padding: 1px 0px 0px 16px;
+}
+
+dd a {
+  color: black;
+}
+
+dd a:hover {
+  color: #cc6633;
+}
+
+.optionsDisplay {
+  width: 360px;
+  float: right;
+  margin-right: 16px
+}

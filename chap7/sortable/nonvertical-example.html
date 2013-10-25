@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Non-Vertical Sorting Examples</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        Sortable.create(
+          'thumbnails1',
+          {
+            tag: 'div'
+          }
+        );
+        Sortable.create(
+          'thumbnails2',
+          {
+            tag: 'div',
+            constraint: 'horizontal'
+          }
+        );
+        Sortable.create(
+          'thumbnails3',
+          {
+            tag: 'div',
+            constraint: 'horizontal',
+            overlap: 'horizontal'
+          }
+        );
+        Sortable.create(
+          'thumbnails4',
+          {
+            tag: 'div',
+            constraint: false
+          }
+        );
+      }
+    </script>
+    <style type="text/css">
+      .thumbnails {
+        height: 124px;
+        width: 860px;
+        border: 3px ridge blue;
+        padding: 9px;
+      }
+      .thumbnails div {
+        float: left;
+        margin: 3px;
+      }
+      #thumbnails4 {
+        width: 520px;
+        height: 256px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <h1>{ }</h1>
+    <div id="thumbnails1" class="thumbnails">
+      <div><img src="../images/photo-1.jpg"/></div>
+      <div><img src="../images/photo-2.jpg"/></div>
+      <div><img src="../images/photo-3.jpg"/></div>
+      <div><img src="../images/photo-4.jpg"/></div>
+      <div><img src="../images/photo-5.jpg"/></div>
+    </div>
+
+  <h1>{ constraint: 'horizontal' }</h1>
+    <div id="thumbnails2" class="thumbnails">
+      <div><img src="../images/photo-1.jpg"/></div>
+      <div><img src="../images/photo-2.jpg"/></div>
+      <div><img src="../images/photo-3.jpg"/></div>
+      <div><img src="../images/photo-4.jpg"/></div>
+      <div><img src="../images/photo-5.jpg"/></div>
+    </div>
+
+  <h1>{ constraint: false }</h1>
+  <div id="thumbnails4" class="thumbnails">
+    <div><img src="../images/photo-1.jpg"/></div>
+    <div><img src="../images/photo-2.jpg"/></div>
+    <div><img src="../images/photo-3.jpg"/></div>
+    <div><img src="../images/photo-4.jpg"/></div>
+    <div><img src="../images/photo-5.jpg"/></div>
+    <div><img src="../images/photo-6.jpg"/></div>
+  </div>
+
+  <h1>{ constraint: 'horizontal', overlap: 'horizontal' }</h1>
+    <div id="thumbnails3" class="thumbnails">
+      <div><img src="../images/photo-1.jpg"/></div>
+      <div><img src="../images/photo-2.jpg"/></div>
+      <div><img src="../images/photo-3.jpg"/></div>
+      <div><img src="../images/photo-4.jpg"/></div>
+      <div><img src="../images/photo-5.jpg"/></div>
+    </div>
+
+  </body>
+
+</html>

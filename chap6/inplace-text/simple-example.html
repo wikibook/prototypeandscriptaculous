@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Simple InPlaceEditor Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Ajax.InPlaceEditor(
+          'theElement',
+          'transform.jsp',
+          {
+            formId: 'whatever',
+            okText: 'Upper me!',
+            cancelText: 'Never mind'
+          }
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="theElement">Click me!</div>
+  </body>
+
+</html>

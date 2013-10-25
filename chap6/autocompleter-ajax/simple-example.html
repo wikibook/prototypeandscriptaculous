@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Simple Ajax Auto-completer Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Ajax.Autocompleter(
+          'autoCompleteTextField',
+          'autoCompleteMenu',
+          'fixed-list.html',
+          {}
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <label>Text field:</label>
+      <input type="text" id="autoCompleteTextField"/>
+      <div id="autoCompleteMenu"></div>
+    </div>
+  </body>
+
+</html>

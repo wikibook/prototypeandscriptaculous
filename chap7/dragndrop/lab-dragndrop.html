@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <title>Scriptaculous Dropppables Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      function onApply() {
+        LabSupport.say('');
+        if (window.draggable) draggable.destroy();
+        Droppables.remove('theDroppable');
+        window.draggable = new Draggable('theDraggable',{revert:true})
+        var form = document.optionsForm;
+        var options = LabSupport.collectOptions(form);
+        if (document.optionsForm.onHover[1].checked) options.onHover = function(draggable,droppable,value) {
+          var message = draggable.id + ' is hovering over ' + droppable.id + ' at ' + new Date();
+          if (options.overlap) message += ' with ' + options.overlap + ' overlap of ' + value;
+          LabSupport.say(message);
+        }
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.onDrop = function(draggable,droppable) {
+          LabSupport.say(draggable.id + ' has been dropped on ' + droppable.id +' at ' + new Date());
+        }
+        Droppables.add('theDroppable',options);
+        return false;
+      }
+    </script>
+    <style type="text/css">
+      #theDraggable {
+        float: left;
+      }
+      #theDroppable {
+        float: right;
+        width: 256px;
+        height: 256px;
+        border: 3px maroon ridge;
+        text-align: center;
+        padding-top: 48px;
+        font-size: 24px;
+        margin-right: 32px;
+      }
+      .dropActive {
+        background-color: #ffffcc;
+        color: red;
+        font-weight: bold;
+        background-image: url(../images/backg.gif);
+      }
+    </style>
+  </head>
+
+  <body class="labPage">
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Messages</legend>
+          <div id="messagesDisplay"></div>
+        </fieldset>
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>Droppable Options</legend>
+
+          <div>
+            <label>hoverclass:</label>
+            <input type="radio" name="hoverclass" value="" class="booleanValue"/>none
+            <input type="radio" name="hoverclass" value="dropActive" class="booleanValue"/>use 'dropActive' class
+          </div>
+
+          <div>
+            <label>accept:</label>
+            <input type="radio" name="accept" value="" class="booleanValue"/>default
+            <input type="radio" name="accept" value="includesDraggable" class="booleanValue"/>class 'includesDraggable'
+            <input type="radio" name="accept" value="excludesDraggable" class="booleanValue"/>class 'excludesDraggable'
+          </div>
+
+          <div>
+            <label>containment:</label>
+            <input type="radio" name="containment" value="" class="booleanValue"/>default
+            <input type="radio" name="containment" value="includesDraggable" class="booleanValue"/>id 'includesDraggable'
+            <input type="radio" name="containment" value="excludesDraggable" class="booleanValue"/>id 'excludesDraggable'
+          </div>
+
+          <div>
+            <label>onHover:</label>
+            <input type="radio" name="onHover" value="" class="ignore"/>none
+            <input type="radio" name="onHover" value="showHover" class="ignore"/>activate hover function
+          </div>
+
+          <div>
+            <label>overlap:</label>
+            <input type="radio" name="overlap" value="" class="booleanValue"/>none
+            <input type="radio" name="overlap" value="horizontal" class="booleanValue"/>horizontal
+            <input type="radio" name="overlap" value="vertical" class="booleanValue"/>vertical
+          </div>
+
+          <div style="margin-top:12px">
+            <input type="submit" value="Apply to Items"/>
+            <input type="reset"/>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+    </form>
+
+    <div style="clear:both;padding-top:18px" id="includesDraggable">
+      <img id="theDraggable" src="../images/bear.gif" class="includesDraggable"/>
+      <div id="theDroppable">drop<br/>here</div>
+    </div>
+
+  </body>
+
+</html>

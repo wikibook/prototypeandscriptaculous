@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Queues Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript">
+      function onApply() {
+        new Effect.Opacity( 'testSubject', makeOptionsFor('opacity'));
+        new Effect.Scale( 'testSubject', 200, makeOptionsFor('scale'));
+        new Effect.MoveBy( 'testSubject', 100, 100, makeOptionsFor('moveby'));
+        new Effect.Pulsate( 'testSubject', makeOptionsFor('pulsate'));
+      }
+
+      function makeOptionsFor( prefix ) {
+        var options = {duration:3,from:0,to:1};
+        if (getRadioValueFor(prefix+'Queue') != '') {
+          options.queue = {};
+          options.queue.position = getRadioValueFor(prefix+'Queue');
+          options.queue.scope = document.optionsForm[prefix+'Scope'].value;
+          if (options.queue.scope == '') options.queue.scope = 'global';
+        }
+        return options;
+      }
+
+      function getRadioValueFor( groupName ) {
+        var radioGroup = document.optionsForm[groupName];
+        for (n = 0; n < radioGroup.length; n++) {
+          if (radioGroup[n].checked) return radioGroup[n].value;
+        }
+        return '';
+      }
+    </script>
+    <style>
+      fieldset {
+        float: left;
+        margin-right: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+     <div>
+       <form name="optionsForm">
+
+         <fieldset>
+           <legend>Opacity Options</legend>
+           <div><input type="radio" name="opacityQueue" value="" checked="checked">Unqueued</div>
+           <div><input type="radio" name="opacityQueue" value="front">Queued at front</div>
+           <div><input type="radio" name="opacityQueue" value="end">Queued at end</div>
+           <div><label>Scope:</label> <input type="text" name="opacityScope"></div>
+         </fieldset>
+
+         <fieldset>
+           <legend>Scale Options</legend>
+           <div><input type="radio" name="scaleQueue" value="" checked="checked">Unqueued</div>
+           <div><input type="radio" name="scaleQueue" value="front">Queued at front</div>
+           <div><input type="radio" name="scaleQueue" value="end">Queued at end</div>
+           <div><label>Scope:</label> <input type="text" name="scaleScope"></div>
+         </fieldset>
+
+         <fieldset>
+           <legend>MoveBy Options</legend>
+           <div><input type="radio" name="movebyQueue" value="" checked="checked">Unqueued</div>
+           <div><input type="radio" name="movebyQueue" value="front">Queued at front</div>
+           <div><input type="radio" name="movebyQueue" value="end">Queued at end</div>
+           <div><label>Scope:</label> <input type="text" name="movebyScope"></div>
+         </fieldset>
+
+         <fieldset>
+           <legend>Pulsate Options</legend>
+           <div><input type="radio" name="pulsateQueue" value="" checked="checked">Unqueued</div>
+           <div><input type="radio" name="pulsateQueue" value="front">Queued at front</div>
+           <div><input type="radio" name="pulsateQueue" value="end">Queued at end</div>
+           <div><label>Scope:</label> <input type="text" name="pulsateScope"></div>
+         </fieldset>
+       </form>
+     </div>
+
+     <div style="clear:both">
+       <button type="button" onclick="onApply()">Apply</button>
+     </div>
+
+     <div style="clear:both">
+       <img src="bear.gif" id="testSubject"/>
+     </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,34 @@
+*{
+  font-family: Arial, Helvetica;
+}
+.box{
+  position: absolute;
+  border: solid #adf 1px;
+  background-color: white;
+  padding: 4px;
+}
+#title{
+  top: 5px;
+  left: 5px;
+  height: 18px;
+  font-size: 14px;
+  color: #8af;
+}
+#folders{
+  top: 35px;
+  left: 5px;
+  width: 150px;
+}
+#images{
+  top: 35px;
+  left: 180px;
+}
+#closeup{
+  top: 35px;
+  left: 180px;
+}
+.img_tile{
+  float: left;
+  width: 160px;
+  height: 160px;
+}

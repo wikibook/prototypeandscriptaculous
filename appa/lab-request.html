@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <title>Request Message Lab Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script type="text/javascript" src="scripts/prototype.js"></script>
+    <script type="text/javascript" src="scripts/lab-support.js"></script>
+    <script>
+      function onApply() {
+        $('ajaxResults').innerHTML = '';
+        $('targetFrame').src= 'blank.html';
+        $('dynamicParameters').innerHTML = '';
+        for (n = 1; n <= 3; n++) {
+          if ($F('parameterName'+n) != '') {
+            $('dynamicParameters').innerHTML += ('<input type="hidden" name="' + $F('parameterName'+n) + '" value="' + $F('parameterValue'+n) + '"/>');
+          }
+        }
+        setFormMethod($F('method'));
+        var options = {};
+        options.method = $F('method');
+        var headers = [];
+        for (n = 1; n <= 3; n++) {
+          if ($F('customHeaderName'+n) != '') {
+            headers.push($F('customHeaderName'+n));
+            headers.push($F('customHeaderValue'+n));
+          }
+        }
+        if (headers.length > 0) options.requestHeaders = headers;
+        options[($F('method') == 'post') ? 'postBody' : 'parameters'] = Form.serialize(document.labForm);
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.onSuccess = showResults;
+        new Ajax.Request('showRequest.jsp',options);
+        document.labForm.submit();
+      }
+
+      function setFormMethod(method) {
+        document.labForm.method = 'get';
+        if (document.all && method != 'post' && method != 'get' ) method = 'get';
+        document.labForm.method = method;
+      }
+
+      function showResults(transport) {
+        var text = '';
+        text += '<div><label>Status code:</label> ' + transport.status + '</div>';
+        text += '<div><label>Reason text:</label> ' + transport.statusText + '</div>';
+        text += '<div><label>Response headers:</label> ' + transport.getAllResponseHeaders() + '</div>';
+        var body = transport.responseText;
+        body = body.replace(/</g,'&lt;');
+        body = body.replace(/>/g,'&gt;');
+        text += '<div><label>Response text:</label><pre>' + body + '</pre></div>';
+        $('ajaxResults').innerHTML = text;
+      }
+    </script>
+    <style>
+      fieldset {
+        width: 45%;
+        float: left;
+      }
+      #optionsContainer input {
+        width: 88px;
+      }
+      #targetFrame {
+        width: 94%;
+        height: 360px;
+      }
+      #ajaxResults {
+        height: 360px;
+        overflow: auto;
+      }
+      #ajaxResults div {
+        margin-bottom: 6px;
+      }
+      #ajaxResults pre {
+        background-color: #eeeeee;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div>
+      <fieldset id="optionsContainer">
+        <legend>Request Information</legend>
+        <form name="optionsForm">
+
+          <div>
+            <label>Method:</label>
+            <select id="method">
+              <option>get</option>
+              <option>post</option>
+              <option>head</option>
+              <option>put</option>
+              <option>delete</option>
+              <option>trace</option>
+              <option>option</option>
+            </select>
+          </div>
+
+          <div style="margin-top:12px">
+            <label>custom header 1:</label>
+            <input type="text" id="customHeaderName1"/>
+            <input type="text" id="customHeaderValue1"/>
+          </div>
+
+          <div>
+            <label>custom header 2:</label>
+            <input type="text" id="customHeaderName2"/>
+            <input type="text" id="customHeaderValue2"/>
+          </div>
+
+          <div>
+            <label>custom header 3:</label>
+            <input type="text" id="customHeaderName3"/>
+            <input type="text" id="customHeaderValue3"/>
+          </div>
+
+          <div style="margin-top:12px">
+            <label>parameter 1:</label>
+            <input type="text" id="parameterName1"/>
+            <input type="text" id="parameterValue1"/>
+          </div>
+
+          <div>
+            <label>parameter 2:</label>
+            <input type="text" id="parameterName2"/>
+            <input type="text" id="parameterValue2"/>
+          </div>
+
+          <div>
+            <label>parameter 3:</label>
+            <input type="text" id="parameterName3"/>
+            <input type="text" id="parameterValue3"/>
+          </div>
+
+          <input type="button" value="Apply" onclick="onApply()"/>
+
+        </form>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ajax.Request Options</legend>
+        <div id="optionsDisplay"></div>
+      </fieldset>
+    </div>
+
+    <div style="clear:both">
+      <form name="labForm" action="showRequest.jsp" method="get" target="targetFrame" onsubmit="onSubmit()">
+        <div id="dynamicParameters"></div>
+      </form>
+    </div>
+
+    <div id="results">
+      <fieldset>
+        <legend>Form Results</legend>
+        <div id="formResults">
+          <iframe id="targetFrame" name="targetFrame"></iframe>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ajax Results</legend>
+        <div id="ajaxResults"></div>
+      </fieldset>
+    </div>
+
+  </body>
+
+</html>

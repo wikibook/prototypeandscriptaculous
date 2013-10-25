@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <title>Sortables Serialize Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        Sortable.create('sortableList1');
+        Sortable.create('sortableList2');
+      }
+
+      function serialize(container,name) {
+        $('display').innerHTML =
+          'Serialization of ' +
+          $(container).id + ' is:<br/><pre>' +
+          Sortable.serialize(container,{name:name}) + '</pre>';
+      }
+    </script>
+    <style type="text/css">
+      ul {
+        width: 88px;
+        border: 1px solid blue;
+        padding: 3px 3px 3px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div style="float:left">
+      <h1>List 1</h1>
+      <ul id="sortableList1">
+        <li id="list1_one">one</li>
+        <li id="list1_two">two</li>
+        <li id="list1_three">three</li>
+        <li id="list1_four">four</li>
+        <li id="list1_five">five</li>
+      </ul>
+      <button type="button"
+              onclick="serialize('sortableList1')">
+        Serialize
+      </button>
+    </div>
+
+    <div style="float:left;margin-left:32px">
+      <h1>List 2</h1>
+      <ul id="sortableList2">
+        <li id="list2_one">one</li>
+        <li id="list2_two">two</li>
+        <li id="list2_three">three</li>
+        <li id="list2_four">four</li>
+        <li id="list2_fi ve">five</li>
+      </ul>
+      <button type="button"
+              onclick="serialize('sortableList2','fred')">
+        Serialize
+      </button>
+    </div>
+
+    <div id="display" style="clear:both;padding-top:32px"></div>
+
+  </body>
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/classic"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="images.inc.php"
+   text-time="2006-09-15T15:16:26.765625Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="4b5a644c85efbf7c30da1fccc9db298d"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="images.css"
+   text-time="2006-03-15T10:20:32.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="cc4e483aa34684ff62b5ba047b793fd2"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="index.php"
+   text-time="2006-09-15T15:08:35.671875Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="f575aba1f1a45075f055625d994b9caf"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>

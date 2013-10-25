@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>Drag-n-Drop Report Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        $A($('availableColumnsContainer').getElementsByTagName('div')).each(
+          function(item) {
+            new Draggable( item,
+                           {
+                             revert:true,
+                             ghosting:true
+                           }
+                         );
+          }
+        );
+        Droppables.add(
+          'includedColumnsContainer',
+          {
+            hoverclass: 'hoverActive',
+            onDrop: function(columnItem,container) {
+              columnItem.parentNode.removeChild(columnItem);
+//              container.getElementsByTagName('ul')[0].appendChild(columnItem);
+              container.appendChild(columnItem);
+            }
+          }
+        );
+      }
+
+      function say(what) {
+        $('messages').innerHTML = what;
+      }
+    </script>
+    <style type="text/css">
+      body {
+        font-family: Verdana,sans-serif;
+      }
+
+      .columnContainer {
+        width: 144px;
+        border: 3px inset #cccccc;
+        padding: 0px;
+      }
+
+      #availableColumnsContainer {
+        float: left;
+      }
+
+      #includedColumnsContainer {
+        float: left;
+        margin-left: 64px;
+      }
+
+      .columnContainer ul {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+      }
+
+      .columnContainer div {
+        padding: 0px;
+        margin: 0px;
+        font-size: 10px;
+        cursor: move;
+      }
+
+      .hoverActive {
+        border: 3px inset red;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="outerContainer">
+
+        <div id="availableColumnsContainer" class="columnContainer">
+          <!--ul>
+            <li>employeeId</li>
+            <li>firstName</li>
+            <li>lastName</li>
+            <li>middleInitialOrName</li>
+            <li>addressLine1</li>
+            <li>addressLine2</li>
+            <li>city</li>
+            <li>stateOrProvince</li>
+            <li>postalCode</li>
+            <li>country</li>
+            <li>departmentKey</li>
+            <li>ssn</li>
+            <li>homePhone</li>
+            <li>officePhone</li>
+            <li>mobilePhone</li>
+            <li>faxPhone</li>
+            <li>title</li>
+            <li>jobKey</li>
+            <li>maritalStatusCode</li>
+            <li>officeLocation</li>
+          </ul-->
+            <div>employeeId</div>
+            <div>firstName</div>
+            <div>lastName</div>
+            <div>middleInitialOrName</div>
+            <div>addressLine1</div>
+            <div>addressLine2</div>
+            <div>city</div>
+            <div>stateOrProvince</div>
+            <div>postalCode</div>
+            <div>country</div>
+            <div>departmentKey</div>
+            <div>ssn</div>
+            <div>homePhone</div>
+            <div>officePhone</div>
+            <div>mobilePhone</div>
+            <div>faxPhone</div>
+            <div>title</div>
+            <div>jobKey</div>
+            <div>maritalStatusCode</div>
+            <div>officeLocation</div>
+        </div>
+
+      <div id="includedColumnsContainer" class="columnContainer">
+        <!--ul>
+        </ul-->
+      </div>
+
+    </div>
+
+    <div id="messages"></div>
+
+  </body>
+
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/contentUpdate/lib/scriptaculous"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="builder.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="6b737ecca99b73e70149195653627e4a"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="util.js"
+   text-time="2006-03-12T17:17:18.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="d986ec1a19956cc5db341ddb8fce6a9f"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="effects.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="5723ef231fd913fa981a3dc5a2492131"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="unittest.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="19e5e5117633a8bc41724d0bc67e4162"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="scriptaculous.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="ba6e48c926618bb08b6a5853efeb2463"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="dragdrop.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="2a8ba7d2631729bb53b42530d522ff08"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="slider.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="e1169fc74b36a0c1529a15a85feda299"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="controls.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="23cef7404ffe6d410b0c235433771d51"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>

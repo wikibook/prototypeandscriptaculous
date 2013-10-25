@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Simple InPlaceCollectionEditor Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Ajax.InPlaceCollectionEditor(
+          'theElement',
+          'transform.jsp',
+          {
+            okText: 'Upper me!',
+            cancelText: 'Never mind',
+            collection: ['one','two','three','four','five']
+          }
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="theElement">Click me!</div>
+  </body>
+
+</html>

@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <title>Scriptaculous Slider Control Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      function onApply() {
+        createSliderElements();
+        var form = document.optionsForm;
+        var rawOptions = LabSupport.collectOptions(form);
+        var options = makeOptions(rawOptions);
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        options.onChange = function(newValue) {
+          $('valueDisplay').innerHTML = newValue;
+        }
+        options.onSlide = options.onChange;
+        $('sliderContainer').show();
+        window.slider = new Control.Slider(
+          "sliderHandle",
+          "sliderTrack",
+          options
+        );
+        window.slider.setValue(0);
+        return false;
+      }
+
+      function createSliderElements() {
+        $('sliderElements').innerHTML =
+          '<div style="padding-bottom:6px">Slider:</div>'+
+          '<div id="sliderTrack">' +
+          '  <img id="sliderHandle" src="handle-horizontal.gif"/>' +
+          '</div>' +
+          '<div id="valueDisplay"></div>';
+      }
+
+      function makeOptions(rawOptions) {
+        var options = {};
+        if (rawOptions.axis) {
+          options.axis = rawOptions.axis;
+          adjustOrientation(rawOptions.axis);
+        }
+        else {
+          adjustOrientation('horizontal');
+        }
+        if (rawOptions.valuesLeft || rawOptions.valuesRight) {
+          if (!rawOptions.valuesLeft) rawOptions.valuesLeft = 0;
+          if (!rawOptions.valuesRight) rawOptions.valuesRight = 1;
+          options.range = $R(rawOptions.valuesLeft,rawOptions.valuesRight)
+          if (rawOptions.discrete != null && rawOptions.discrete == true) {
+            options.values = [];
+            if (rawOptions.valuesLeft < rawOptions.valuesRight) {
+              for (var n = rawOptions.valuesLeft; n <= rawOptions.valuesRight; n++) {
+                options.values.push(n);
+              }
+            }
+            else {
+              for (var n = rawOptions.valuesLeft; n >= rawOptions.valuesRight; n--) {
+                options.values.push(n);
+              }
+            }
+          }
+        }
+        return options;
+      }
+
+      function adjustOrientation(axis) {
+        $('sliderTrack').className = axis;
+        $('sliderHandle').className = axis;
+        $('sliderHandle').src = 'handle-' + axis + '.gif';
+      }
+
+      function toggleSliderState() {
+        if (slider.disabled) {
+          slider.setEnabled();
+        }
+        else {
+          slider.setDisabled();
+        }
+        $('sliderStateButton').innerHTML = (slider.disabled ? 'Enable' : 'Disable') + ' Slider';
+        $('sliderHandle').src = 'handle-' + slider.axis + (slider.disabled ? '-disabled' : '') + '.gif';
+      }
+    </script>
+    <style type="text/css">
+      #sliderTrack {
+        cursor: pointer;
+      }
+      #sliderHandle {
+        cursor: pointer;
+      }
+      #sliderTrack.horizontal {
+        width: 175px;
+        height: 10px;
+        background-image: url(track-horizontal.gif);
+      }
+      #sliderHandle.horizontal {
+        margin-top: -4px;
+      }
+      #sliderTrack.vertical {
+        width: 10px;
+        height: 175px;
+        background-image: url(track-vertical.gif);
+      }
+      #sliderHandle.vertical {
+        margin-left: -4px;
+      }
+      .sliderElements div {
+        float: left;
+        margin-right: 12px;
+      }
+      .numeric {
+        width: 48px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>Control.Slider Options</legend>
+
+          <div>
+            <label>axis:</label>
+            <input type="radio" name="axis" value="horizontal" class="booleanValue"/>Horizontal
+            <input type="radio" name="axis" value="vertical" class="booleanValue"/>Vertical
+          </div>
+
+          <div>
+            <label>range:</label>
+            <input type="text" name="valuesLeft" class="numeric"/>
+            to
+            <input type="text" name="valuesRight" class="numeric"/>
+          </div>
+
+          <div>
+            <label>discrete:</label>
+            <input type="radio" name="discrete" value="true" class="boolean"/>yes
+            <input type="radio" name="discrete" value="false" class="boolean"/>no
+          </div>
+
+        </fieldset>
+
+        <div style="margin-top:12px">
+          <input type="submit" value="Create Slider"/>
+          <input type="reset"/>
+        </div>
+
+      </div>
+
+    </form>
+
+    <div id="sliderContainer" style="clear:both;display:none;padding-top:18px">
+      <div id="sliderElements" class="sliderElements">
+      </div>
+      <div style="clear:both;padding-top:16px">
+        <button type="button" id="sliderStateButton" onclick="toggleSliderState()">Disable Slider</button>
+      </div>
+    </div>
+
+  </body>
+
+</html>

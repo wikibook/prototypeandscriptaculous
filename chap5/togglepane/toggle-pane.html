@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Toggle Pane Test</title>
+    <script type="text/javascript"
+            src="scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="scripts/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript"
+            src="scripts/TogglePane.js"></script>
+    <script>
+      window.onload = function() {
+        new TogglePane($('testFieldset'),true);
+      }
+    </script>
+    <style type="text/css">
+      body {
+        font-family: Verdana,sans-serif;
+        font-size: 9pt;
+        padding: 16px;
+      }
+      fieldset {
+        border: 1px solid black;
+        padding: 4px 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <p>
+      Content that comes before the Toggle Pane.
+    </p>
+
+    <fieldset id="testFieldset">
+      <legend>Optional Section</legend>
+      <div style="display:none">
+        <p>
+          Content of the Toggle Pane.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet. Sed quis massa. Phasellus lobortis, nunc eget nonummy feugiat, neque mi pretium neque, sed accumsan lectus sem eu est. Proin placerat. Ut non arcu faucibus erat lobortis hendrerit. Aenean pulvinar auctor augue. Praesent magna. Phasellus quis velit eu magna ullamcorper ultricies. Morbi justo sapien, rhoncus quis, pulvinar ut, ullamcorper vel, lectus. Mauris non ipsum. Aliquam euismod convallis turpis.
+        </p>
+        <p>
+          Ut sagittis. Suspendisse sagittis blandit est. Sed consectetuer lectus at eros. Duis lacinia, purus at vestibulum fringilla, ipsum eros rutrum neque, ut mollis lorem velit quis leo.
+        </p>
+      </div>
+    </fieldset>
+
+    <p>
+      Content that comes after the Toggle Pane.
+    </p>
+
+  </body>
+</html>

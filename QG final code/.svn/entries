@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   name="contentScript"
+   kind="dir"/>
+<entry
+   name="classic"
+   kind="dir"/>
+<entry
+   name="slideshow"
+   kind="dir"/>
+<entry
+   name="dataJSON"
+   kind="dir"/>
+<entry
+   name="slides"
+   kind="dir"/>
+<entry
+   name="contentJSON"
+   kind="dir"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="Thumbs.db"
+   text-time="2006-08-25T15:10:06.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="1b5e7e8173e980a0c1e65581fd0e83e6"
+   last-author="dave"
+   kind="file"
+   prop-time="2006-09-15T20:17:18.609375Z"/>
+<entry
+   name="dataXML"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="index.html"
+   text-time="2006-09-15T20:15:29.046875Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="40fc6c36cfdc8fc067c5e050fcefd2bb"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="config.php"
+   text-time="2006-09-15T20:04:24.265625Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="baae6e0ff9f2b0a37850b865fe01ea24"
+   last-author="dave"
+   kind="file"/>
+<entry
+   name="icons"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="QuickGallery2.0BETA.png"
+   text-time="2006-08-23T10:05:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="2ec5e2b882e24dc7a5ebc70c9f686b58"
+   last-author="dave"
+   kind="file"
+   prop-time="2006-09-15T20:17:17.828125Z"/>
+<entry
+   name="contentUpdate"
+   kind="dir"/>
+</wc-entries>

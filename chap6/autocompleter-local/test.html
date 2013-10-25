@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        new Autocompleter.Local(
+          'bands_from_the_70s',
+          'band_list',
+          ['ABBA', 'AC/DC', 'Aerosmith', 'America', 'Bay City Rollers', 'Black Sabbath', 'Boston', 'David Bowie', 'Can', 'The Carpenters', 'Chicago', 'The Commodores', 'Crass', 'Deep Purple', 'The Doobie Brothers', 'Eagles', 'Fleetwood Mac', 'Haciendo Punto en Otro Son', 'Heart', 'Iggy Pop and the Stooges', 'Journey', 'Judas Priest', 'KC and the Sunshine Band', 'Kiss', 'Kraftwerk', 'Led Zeppelin', 'Lindisfarne (band)', 'Lipps, Inc', 'Lynyrd Skynyrd', 'Pink Floyd', 'Queen', 'Ramones', 'REO Speedwagon', 'Rhythm Heritage', 'Rush', 'Sex Pistols', 'Slade', 'Steely Dan', 'Stillwater', 'Styx', 'Supertramp', 'Sweet', 'Three Dog Night', 'The Village People', 'Wings (fronted by former Beatle Paul McCartney)', 'Yes'],
+          {
+            tokens: ','
+          }
+        );
+      }
+    </script>
+    <style type="text/css">
+    </style>
+  </head>
+
+  <body>
+
+    <p>
+      <label for="bands_from_the_70s">Your favorite rock  band from the 70's:</label>
+      <input id="bands_from_the_70s" autocomplete="off" size="40" type="text" value=""/>
+    </p>
+    <div class="page_name_auto_complete" id="band_list" style="display:none"></div>
+
+  </body>
+
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+  <link rel='stylesheet' type="text/css" href="slideshow/images.css"/>
+  <style type='text/css'>
+    .hdrRow{ background-color: #adf; color: white; padding: 2px;}
+    .blurb{ color: #777; padding: 4px; }
+  </style>
+</head>
+<body>
+
+
+<table width='780'>
+
+<tr>
+<td rowspan='42' valign='top'><img src='QuickGallery2.0BETA.png'/></td>
+<td rowspan='42' valign='top' width='180'>
+<p class='blurb'>QuickGallery is a simple image browser web application developed for the book 'Prototype & Scriptaculous Quickly', by Dave Crane, Bear Bibeault and Tom Locke. This is a launching page to the various versions of the gallery developed in the book.</p>
+<p class='blurb'>Don't expect to see a lot of difference between the various versions in chapters 3 & 4. With the exception of the auto-updating one, the behaviour is identical, and you'll need to get your debugger out to spot the differences.</p>
+<p class='blurb'>The example from chapter 12 <i>is</i> different, though, so visit that one if you want to see some fireworks!</p>
+</td>
+<td colspan='3' class='hdrRow'><h2>Chapter 2</h2></td>
+</tr>
+<tr>
+<td>
+<a href='classic/'><img src='icons/package_wordprocessing.png' border='0'/></a>
+</td>
+<td class='title'>Classic</td>
+<td>A classic web application with no use of Ajax or DHTML. This is just here as a starting point to prove how easy it is to Ajax-enable a legacy application.</td>
+</tr>
+
+</td>
+<td colspan='3' class='hdrRow'><h2>Chapter 3</h2></td>
+</tr>
+<tr>
+<td>
+<a href='dataXML/'><img src='icons/kmplot.png' border='0'/></a>
+</td>
+<td class='title'>Data, using XML</td>
+<td>The first cut at Ajax-enabling the application, in which the server returns XML data.</td>
+</tr>
+<tr>
+<td>
+<a href='dataJSON/'><img src='icons/kmplot.png' border='0'/></a>
+</td>
+<td class='title'>Data, using JSON</td>
+<td>We replace the XML data with JSON, which is easier for the JavaScript to digest.</td>
+</tr>
+
+</td>
+<td colspan='3' class='hdrRow'><h2>Chapter 4</h2></td>
+</tr>
+<tr>
+<td>
+<a href='contentScript/'><img src='icons/knewsletter.png' border='0'/></a>
+</td>
+<td class='title'>Content, with added Script</td>
+<td>The server simply returns the pre-formatted HTML for the main thumbnail view. Updating of secondary elements is handled using script tags.</td>
+</tr>
+<tr>
+<td>
+<a href='contentJSON/'><img src='icons/knewsletter.png' border='0'/></a>
+</td>
+<td class='title'>Content, with added JSON</td>
+<td>We exploit recent features from Prototype 1.5, to pass secondary information as a JSON-encoded response header, which we parse in a separate responder object.</td>
+<tr>
+<td>
+<a href='contentUpdate/'><img src='icons/ktimer.png' border='0'/></a>
+</td>
+<td class='title'>Content, with automatic updates</td>
+<td>A demonstration of the Prototype Ajax.PeriodicUpdater class. The content will be automatically fetched on a periodic basis by the client.</td>
+</tr>
+
+<tr>
+<td colspan='3' class='hdrRow'><h2>Chapter 12</h2></td>
+</tr>
+<tr>
+<td>
+<a href='slideshow/'><img src='icons/kpresenter_kpr.png' border='0'/></a>
+</td>
+<td class='title'>Version 2.0</td>
+<td>A complete revamp, building on the content+JSON version, adding in a fancy new slideshow feature to show off how easy this sort of thing is with Prototype & Scriptaculous doing a lot of the work for you.</td>
+</tr>
+
+</table>
+
+</body>
+</html>

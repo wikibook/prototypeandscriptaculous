@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Transition Mapper</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script>
+      function showResults( transitionName ) {
+        $('resultsTable').innerHTML = '';
+        $('resultsChart').innerHTML = '';
+        $('resultsChart').style.backgroundColor = 'black';
+        var results = new Array();
+        var maxResult = 0.0;
+        for (var n = 0; n <= 100; n += 1) {
+          var pos = n / 100.0;
+          results[n] = Effect.Transitions[transitionName](pos);
+          maxResult = Math.max(maxResult,results[n]);
+        }
+        $('resultsChart').style.height = Math.round(maxResult * 100) + 'px';
+        for (var n = 0; n <= 100; n += 1) {
+          var height = Math.round(maxResult * 100) - Math.round(100 * results[n]);
+          var left = n * 4;
+          $('resultsTable').innerHTML += (n /100.0) + ' -> ' + results[n] + '<br/>';
+          $('resultsChart').innerHTML += '<div class="chartBar" style="height:' + height + 'px;left:' + left + 'px"></div>';
+        }
+        $('selector').value = '';
+        $('chartLegend').innerHTML = 'Transition Results Chart for ' + transitionName;
+        $('tableLegend').innerHTML = 'Transition Results Table for ' + transitionName;
+      }
+
+      Effect.Transitions.half = function(pos) {
+        return pos/2.0;
+      }
+
+      Effect.Transitions.undo = function(pos) {
+        return 2.0 * ((pos < 0.5) ? pos : (1 - pos));
+      }
+
+    </script>
+    <style type="text/css">
+      body {
+        font-family: Verdana,sans-serif;
+        font-size: 9pt;
+        padding: 16px;
+      }
+      fieldset {
+        border: 1px solid black;
+        padding: 4px 12px;
+        width: 404px;
+        margin-top: 12px;
+      }
+      #resultsTable {
+        font-size: 7pt;
+      }
+      #resultsChart {
+        position: relative;
+      }
+      .chartBar {
+        position: absolute;
+        background-color: #cccccc;
+        width: 4px;
+        top: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <div>
+    <label>Transition:</label>
+    <select id="selector" onchange="showResults(this.value)">
+      <option value="">choose one...</option>
+      <optgroup label="Scriptaculous built-ins">
+        <option value="sinoidal">sinoidal</option>
+        <option value="linear">linear</option>
+        <option value="flicker">flicker</option>
+        <option value="pulse">pulse</option>
+        <option value="wobble">wobble</option>
+        <option value="reverse">reverse</option>
+        <option value="full">full</option>
+      </optgroup>
+      <optgroup label="Custom">
+        <option value="half">half</option>
+        <option value="undo">undo</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend id="chartLegend">Transition Results Chart</legend>
+      <div id="resultsChart"></div>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend id="tableLegend">Transition Results Table</legend>
+      <div id="resultsTable"></div>
+    </fieldset>
+  </div>
+
+  </body>
+</html>

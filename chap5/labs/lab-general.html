@@ -1,0 +1,276 @@
+<html>
+  <head>
+    <title>Scriptaculous Effects Lab</title>
+    <link rel="stylesheet" type="text/css" href="effects-lab.css"/>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript">
+      function showOrHide( element, show ) {
+        if (show) {
+          Element.show( element );
+        }
+        else {
+          Element.hide( element );
+        }
+      }
+
+      function onChangeEffect() {
+        var effectName = this.value;
+        showOrHide( 'optionsForScale', effectName == 'Scale' );
+        showOrHide( 'optionsForHighlight', effectName == 'Highlight' );
+        showOrHide( 'paramsForScale', effectName == 'Scale' );
+        showOrHide( 'paramsForMoveBy', effectName == 'MoveBy' );
+      }
+
+      function onApply() {
+        var form = document.labForm;
+        var effectName = form.effectName.value;
+        if (effectName == '') {
+          alert('Please choose an effect');
+          return;
+        }
+        var options = new Object();
+        if ($F('duration').length != 0) options.duration = new Number($F('duration'));
+        if ($F('from').length != 0) options.from = new Number($F('from'));
+        if ($F('to').length != 0) options.to = new Number($F('to'));
+        if ($F('fps').length != 0) options.fps = new Number($F('fps'));
+        var transition = form.transition.value;
+        if (transition.length != 0) {
+          options.transition =  Effect.Transitions[transition];
+        }
+        if (effectName == 'Scale') {
+          options.scaleX = $('scaleX').checked;
+          options.scaleY = $('scaleY').checked;
+          options.scaleContent = $('scaleContent').checked;
+          options.scaleFromCenter = $('scaleFromCenter').checked;
+          if ($F('scaleFrom').length != 0) options.scaleFrom = new Number($F('scaleFrom'));
+          if ($('scaleModeBox').checked) options.scaleMode = 'box';
+          if ($('scaleModeContents').checked) options.scaleMode = 'contents';
+        }
+        if (effectName == 'Highlight') {
+          if ($F('startcolor').length != 0) options.startcolor = $F('startcolor');
+          if ($F('endcolor').length != 0) options.endcolor = $F('endcolor');
+          if ($F('restorecolor').length != 0) options.restorecolor = $F('restorecolor');
+        }
+        if (effectName == 'Scale') {
+          var percent = new Number(form.percent.value);
+          showEffect( 'Scale', options, percent)
+          new Effect.Scale( 'testSubject1', percent, options );
+          new Effect.Scale( 'testSubject2', percent, options );
+          new Effect.Scale( 'testSubject3', percent, options );
+        }
+        else if (effectName == 'MoveBy') {
+          var y = new Number(form.y.value);
+          var x = new Number(form.x.value);
+          showEffect( 'MoveBy', options, y, x );
+          new Effect.MoveBy( 'testSubject1', y, x, options );
+          new Effect.MoveBy( 'testSubject2', y, x, options );
+          new Effect.MoveBy( 'testSubject3', y, x, options );
+        }
+        else {
+          showEffect( effectName, options );
+          if (effectName.substr(0,5) != 'Slide') {
+            new Effect[effectName]( 'testSubject1', options );
+            new Effect[effectName]( 'testSubject2', options );
+          }
+          new Effect[effectName]( 'testSubject3', options );
+        }
+      }
+
+      function showEffect( effectName, options, p1, p2 ) {
+        var text = '<pre>new Effect.' + effectName + '(<br/>';
+        text += '  testSubject<br/>';
+        if (p1) text += '  ' + p1 + ',<br/>';
+        if (p2) text += '  ' + p2 + ',<br/>';
+        text += '  {<br/>';
+        for (p in options) text += ('    ' + p + ': ' + options[p] + '<br/>')
+        text += '  }<br/>';
+        text += ');</pre>';
+        $('effectReferenceDisplay').innerHTML = text;
+      }
+
+      window.onload = function() {
+        onChangeEffect.call(document.labForm.effectName);
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <form name="labForm">
+      <fieldset style="float:right;margin-right:32px">
+        <legend>Applied Effect</legend>
+        <div id="effectReferenceDisplay"></div>
+      </fieldset>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>Effect</legend>
+          <select name="effectName" onchange="onChangeEffect.call(this)">
+            <option value="">Choose an effect...</option>
+            <optgroup label="Core Effects">
+              <option value="Opacity">Opacity</option>
+              <option value="Highlight">Highlight</option>
+              <option value="Scale">Scale</option>
+              <option value="MoveBy">MoveBy</option>
+            </optgroup>
+            <optgroup label="Combination Effects">
+              <option value="Fade">Fade</option>
+              <option value="Appear">Appear</option>
+              <option value="BlindUp">BlindUp</option>
+              <option value="BlindDown">BlindDown</option>
+              <option value="SlideUp">SlideUp</option>
+              <option value="SlideDown">SlideDown</option>
+              <option value="Shrink">Shrink</option>
+              <option value="Grow">Grow</option>
+              <option value="Puff">Puff</option>
+              <option value="DropOut">DropOut</option>
+              <option value="SwitchOff">SwitchOff</option>
+              <option value="Squish">Squish</option>
+              <option value="Fold">Fold</option>
+              <option value="Shake">Shake</option>
+              <option value="Pulsate">Pulsate</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Options</legend>
+          <div id="optionsCommon">
+            <div>
+              <label>duration:</label>
+              <input type="text" name="duration" id="duration"/>
+            </div>
+            <div>
+              <label>from:</label>
+              <input type="text" name="from" id="from"/>
+            </div>
+            <div>
+              <label>to:</label>
+              <input type="text" name="to" id="to"/>
+            </div>
+            <div>
+              <label>fps:</label>
+              <input type="text" name="fps" id="fps"/>
+            </div>
+            <div>
+              <label>transition:</label>
+              <select name="transition" id="transtion">
+                <option value="">use default</option>
+                <option value="sinoidal">sinoidal</option>
+                <option value="linear">linear</option>
+                <option value="flicker">flicker</option>
+                <option value="pulse">pulse</option>
+                <option value="wobble">wobble</option>
+                <option value="reverse">reverse</option>
+                <option value="full">full</option>
+              </select>
+            </div>
+          </div>
+          <div id="optionsForScale">
+            <div>
+              <label>scaleX:</label>
+              <input type="checkbox" name="scaleX" id="scaleX" checked="checked"/>
+            </div>
+            <div>
+              <label>scaleY:</label>
+              <input type="checkbox" name="scaleY" id="scaleY" checked="checked"/>
+            </div>
+            <div>
+              <label>scaleContent:</label>
+              <input type="checkbox" name="scaleContent" id="scaleContent" checked="checked"/>
+            </div>
+            <div>
+              <label>scaleFromCenter:</label>
+              <input type="checkbox" name="scaleFromCenter" id="scaleFromCenter"/>
+            </div>
+            <div>
+              <label>scaleFrom:</label>
+              <input type="text" name="scaleFrom" id="scaleFrom"/>
+            </div>
+            <div>
+              <label>scaleMode:</label>
+              <input type="radio" name="scaleMode" id="scaleModeBox" checked />box
+              <input type="radio" name="scaleMode" id="scaleModeContents"/>contents
+            </div>
+          </div>
+          <div id="optionsForHighlight">
+            <div>
+              <label>startcolor:</label>
+              <input type="text" name="startcolor" id="startcolor"/>
+            </div>
+            <div>
+              <label>endcolor:</label>
+              <input type="text" name="endcolor" id="endcolor"/>
+            </div>
+            <div>
+              <label>restorecolor:</label>
+              <input type="text" name="restorecolor" id="restorecolor"/>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Effect-specific Parameters</legend>
+          <div id="paramsForScale">
+            <div>
+              <label>scaleToPercent:</label>
+              <input type="text" id="percent"/>
+            </div>
+          </div>
+          <div id="paramsForMoveBy">
+            <div>
+              <label>y:</label>
+              <input type="text" id="y"/>
+            </div>
+            <div>
+              <label>x:</label>
+              <input type="text" id="x"/>
+            </div>
+          </div>
+        </fieldset>
+
+        <div style="margin-top:12px">
+          <input type="button" onclick="onApply()" value="Apply Effect"/>
+        </div>
+      </div>
+
+      <div style="clear:both;padding-top:32px">
+        <label>Test subjects:</label>
+      </div>
+
+      <div style="clear:both;background-color:red">
+
+        <div id="testSubject1" class="testSubject">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit. Donec iaculis sodales tellus. Maecenas consectetuer,
+            nunc nec laoreet venenatis, tellus mauris varius tortor,
+            eu malesuada eros eros eu mi.
+        </div>
+        <div id="testSubject2" class="testSubject">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit. Donec iaculis sodales tellus. Maecenas consectetuer,
+            nunc nec laoreet venenatis, tellus mauris varius tortor,
+            eu malesuada eros eros eu mi.
+        </div>
+        <div id="testSubject3" class="testSubject">
+          <div id="innerSubject3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit. Donec iaculis sodales tellus. Maecenas consectetuer,
+            nunc nec laoreet venenatis, tellus mauris varius tortor,
+            eu malesuada eros eros eu mi.
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+
+    <div style="clear:both;background-color:#eeeeee">[end of page]</div>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Image Slider Example</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+          new Control.Slider(
+            'sliderHandle',
+            'sliderTrack',
+            {
+             range: $R(1,10),
+             onSlide: function(v) {$('sliderValue').innerHTML = v;}
+              //,sliderValue: 5
+              ,alignX: 10
+              //,alignY: 10
+            }
+          );
+      }
+    </script>
+    <style type="text/css">
+      body {
+        margin: 32px;
+      }
+      #sliderTrackx {
+        width: 175px;
+        height: 10px;
+        background-image: url(track.gif);
+        background-repeat: no-repeat;
+        background-position: 0px 4px;
+        cursor: pointer;
+      }
+      #sliderHandlex {
+        cursor: pointer;
+      }
+      #sliderElements {
+        position: relative;
+        cursor: pointer;
+        height: 24px;
+        border: 1px solid pink;
+      }
+      #sliderElements #sliderHandle {
+        position: relative;
+        left: 10px;
+      }
+      #sliderElements #sliderTrack {
+        position: absolute;
+        top: 4px;
+        left: -10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--div id="sliderTrack"></div-->
+    <div id="sliderElements">
+      <img id="sliderTrack" src="track.gif"/>
+      <img id="sliderHandle" src="handle-green.gif"/>
+    </div>
+    <div id="sliderValue"></div>
+  </body>
+
+</html>

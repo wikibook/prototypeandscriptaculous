@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/slides"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="short.slides"
+   text-time="2006-09-08T13:10:26.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="908c34a93baf89d17beae77ccdce2fca"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="greenery.slides"
+   text-time="2006-09-08T13:20:26.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="f17b420aafafbe312300649e076b4664"
+   last-author="dave"
+   kind="file"/>
+<entry
+   committed-rev="20"
+   name="crops.slides"
+   text-time="2006-09-08T13:34:36.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="f49683c9fc5b1ff460f2ba85baabd27c"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>

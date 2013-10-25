@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Quick Win!</title>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script>
+      window.onload = function() {
+          new Effect.Opacity('theQuote',
+                            {duration:1.5, from:0.0, to:1.0});
+      }
+    </script>
+  </head>
+
+  <body>
+    <p>Someone famous once said:</p>
+    <blockquote id="theQuote">
+      Necessity never made a good bargain. &mdash; Ben Franklin
+    </blockquote>
+    <p>And I believe him.</p>
+  </body>
+</html>

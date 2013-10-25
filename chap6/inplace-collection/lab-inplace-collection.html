@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>Scriptaculous InPlaceEditor Lab</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css"/>
+    <script type="text/javascript" src="../scripts/prototype.js"></script>
+    <script type="text/javascript" src="../scripts/scriptaculous.js"></script>
+    <script type="text/javascript" src="../scripts/lab-support.js"></script>
+    <script type="text/javascript">
+      function onApply() {
+        var form = document.optionsForm;
+        var options = LabSupport.collectOptions(form);
+        options.collection = [];
+        $F('choicesList').split(document.all ? '\r\n' : '\n').each(
+          function(item) {
+            if (item.length != 0) options.collection.push(item);
+          }
+        );
+        $('optionsDisplay').innerHTML = LabSupport.optionsAsText(options);
+        $('elementContainer').innerHTML = '<label>Target element:</label><span id="targetElement">Click me to edit!</span>';
+        new Ajax.InPlaceCollectionEditor('targetElement','transform.jsp',options);
+        return false;
+      }
+    </script>
+    <style type="text/css">
+      .inplaceeditor-form {
+        display: inline;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <form name="optionsForm" onsubmit="return onApply()">
+
+      <div class="optionsDisplay">
+        <fieldset>
+          <legend>Applied Options</legend>
+          <div id="optionsDisplay"></div>
+        </fieldset>
+      </div>
+
+      <div style="float:left">
+        <fieldset>
+          <legend>InPlaceEditor Options</legend>
+
+          <div>
+            <label>okButton:</label>
+            <input type="radio" name="okButton" value="true" class="boolean"/>Yes
+            <input type="radio" name="okButton" value="false" class="boolean"/>No
+          </div>
+
+          <div>
+            <label>okText:</label>
+            <input type="text" name="okText"/>
+          </div>
+
+          <div>
+            <label>cancelLink:</label>
+            <input type="radio" name="cancelLink" value="true" class="boolean"/>Yes
+            <input type="radio" name="cancelLink" value="false" class="boolean"/>No
+          </div>
+
+          <div>
+            <label>cancelText:</label>
+            <input type="text" name="cancelText"/>
+          </div>
+
+          <div>
+            <label>clickToEditText:</label>
+            <input type="text" name="clickToEditText"/>
+          </div>
+
+          <div>
+            <label>highlightcolor:</label>
+            <input type="text" name="highlightcolor"/>
+          </div>
+
+          <div>
+            <label>highlightendcolor:</label>
+            <input type="text" name="highlightendcolor"/>
+          </div>
+
+          <div>
+            <label>loadTextURL:</label>
+            <input type="text" name="loadTextURL"/>
+          </div>
+
+          <div>
+            <label>savingText:</label>
+            <input type="text" name="savingText"/>
+          </div>
+
+          <div>
+            <label>formId:</label>
+            <input type="text" name="formId"/>
+          </div>
+
+          <div>
+            <input type="submit" value="Create Editor"/>
+            <input type="reset"/>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Choices</legend>
+
+          <p>
+            Enter choices, one per line:
+          </p>
+
+          <textarea id="choicesList" rows="8"></textarea>
+
+        </fieldset>
+
+        <div style="margin-top:12px">
+          <input type="submit" value="Create Editor"/>
+        </div>
+
+      </div>
+
+    </form>
+
+    <div id="elementContainer" style="clear:both;padding-top:32px"></div>
+
+  </body>
+
+</html>

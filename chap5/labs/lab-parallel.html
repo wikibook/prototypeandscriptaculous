@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Scriptaculous MoveByEffect Lab</title>
+    <link rel="stylesheet" type="text/css" href="effects-lab.css"/>
+    <style type="text/css">
+      #testSubject {
+        position: relative;
+        width: 300px;
+        padding: 16px;
+        background-color: #ffc082;
+        border: 3px maroon ridge;
+      }
+      #innerSubject {
+        border: 1px solid green;
+      }
+    </style>
+    <script type="text/javascript"
+            src="../scripts/prototype.js"></script>
+    <script type="text/javascript"
+            src="../scripts/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript">
+      function onApply() {
+        var form = document.labForm;
+        var options = {};
+        if ($F('duration') != '') options.duration = new Number($F('duration'));
+        if ($F('from') != '') options.from = new Number($F('from'));
+        if ($F('to') != '') options.to = new Number($F('to'));
+        showOptions(options);
+        var y = new Number(form.y.value);
+        var x = new Number(form.y.value);
+        var percent = new Number(form.percent.value);
+        new Effect.Parallel(
+          [
+            new Effect.MoveBy('testSubject', y, x, { sync: true }),
+            new Effect.Scale('testSubject', percent, { sync: true })
+           ],
+           options
+         );
+      }
+
+      function showOptions(options) {
+        var optionsText = '{<br/>';
+        for (p in options) optionsText += ('  ' + p + ': ' + options[p] + '<br/>')
+        optionsText += '}';
+        $('optionsDisplay').innerHTML = optionsText;
+      }
+
+    </script>
+  </head>
+
+  <body>
+
+    <fieldset style="float:right;margin-right:32px">
+      <legend>Options</legend>
+      <div id="optionsDisplay">
+      </div>
+    </fieldset>
+
+    <div style="float:left">
+      <fieldset name="labForm">
+        <legend>Parallel Effect: MoveBy and Scale</legend>
+        <form name="labForm">
+          <div>
+            <label>y:</label>
+            <input type="text" id="y"/>
+          </div>
+          <div>
+            <label>x:</label>
+            <input type="text" id="x"/>
+          </div>
+          <div>
+            <label>percent:</label>
+            <input type="text" id="percent"/>
+          </div>
+          <div>
+            <label>Duration:</label>
+            <input type="text" id="duration"/>
+          </div>
+          <div>
+            <label>From:</label>
+            <input type="text" id="from"/>
+          </div>
+          <div>
+            <label>To:</label>
+            <input type="text" id="to"/>
+          </div>
+          <div>
+            <button type="button" onclick="onApply()">Apply</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+
+    <div style="clear:both">&nbsp;</div>
+
+    <div id="testSubject">
+      <div id="innerSubject">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing
+        elit. Donec iaculis sodales tellus. Maecenas consectetuer,
+        nunc nec laoreet venenatis, tellus mauris varius tortor,
+        eu malesuada eros eros eu mi. Curabitur sem. Donec dui
+        elit, vehicula nec, ultricies condimentum, fringilla sed,
+        arcu. Nunc commodo. Sed nec massa. Nullam sit amet tortor
+        sed arcu pretium viverra. Vivamus facilisis, velit dapibus sodales
+        vestibulum, mi sem posuere risus.
+      </div>
+    </div>
+
+    <hr/>
+
+  </body>
+
+</html>

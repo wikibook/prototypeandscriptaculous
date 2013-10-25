@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2006-09-15T20:17:15.913265Z"
+   url="svn://flitwick/psq/trunk/QG%20final%20code/contentUpdate/lib/prototype"
+   last-author="dave"
+   kind="dir"
+   revision="20"/>
+<entry
+   committed-rev="20"
+   name="prototype.js"
+   text-time="2006-06-30T06:58:20.000000Z"
+   committed-date="2006-09-15T20:17:15.913265Z"
+   checksum="f57aaa32617e68bc8328178fd26c1f52"
+   last-author="dave"
+   kind="file"/>
+</wc-entries>
